@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 
-RUN dpkg-reconfigure debconf --frontend=noninteractive && \
+RUN \
     dpkg --add-architecture i386 && \
-    apt-get update && \
-    apt-get upgrade -yq
+    DEBIAN_FRONTEND=noninteractive apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq
